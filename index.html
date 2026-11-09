@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nacimiento Estelar | Portafolio</title>
+  <meta name="description" content="Nacimiento Estelar: experiencia interactiva en Unity con input físico Arduino, adaptación de una experiencia del Planetario de Medellín. Universidad EAFIT." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <canvas id="starfield" aria-hidden="true"></canvas>
+
+  <!-- NAV -->
+  <header class="nav" id="nav">
+    <a href="#inicio" class="logo">
+      <span class="logo-star">✦</span> Nacimiento <strong>Estelar</strong>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">☰</button>
+    <nav class="nav-links" id="navLinks">
+      <a href="#proyecto">Proyecto</a>
+      <a href="#videos">Videos</a>
+      <a href="#desenlaces">Desenlaces</a>
+      <a href="#analisis">Análisis</a>
+      <a href="#equipo" class="btn btn-small">Equipo</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <video class="hero-video" src="assets/banner.mp4" autoplay muted loop playsinline aria-hidden="true"></video>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="eyebrow">Experiencia interactiva · Universidad EAFIT</p>
+      <h1>Nacimiento<br /><span class="gradient-text">Estelar</span></h1>
+      <p class="hero-sub">
+        Crea tu propia estrella controlando su masa y temperatura, y descubre cuál será su destino.
+        Una adaptación de una experiencia interactiva del Planetario de Medellín, desarrollada en Unity
+        y controlada con un input físico en forma de sol.
+      </p>
+      <div class="hero-actions">
+        <a href="#videos" class="btn">▶ Ver videos</a>
+        <a href="#proyecto" class="btn btn-ghost">Conocer el proyecto</a>
+      </div>
+    </div>
+    <div class="hero-facts">
+      <div><span>Unity</span> motor de la experiencia</div>
+      <div><span>Arduino</span> input físico</div>
+    </div>
+    <a href="#proyecto" class="scroll-hint" aria-label="Bajar">↓</a>
+  </section>
+
+  <!-- PROYECTO -->
+  <section class="section" id="proyecto">
+    <div class="container split">
+      <div class="reveal">
+        <p class="eyebrow">El proyecto</p>
+        <h2>Cada estrella tiene un destino</h2>
+        <p>
+          <em>Nacimiento Estelar</em> es una adaptación de una experiencia interactiva del
+          <strong>Planetario de Medellín</strong>. En ella, el jugador asume la misión de <strong>crear estrellas para evitar la muerte térmica</strong>
+          de un sector del universo: ajusta las variables que dan forma a cada estrella, como su <strong>masa</strong> y su
+          <strong>temperatura</strong>, y la ve nacer.
+        </p>
+        <p>
+          Al final, la experiencia le muestra los distintos desenlaces que puede tener una estrella
+          según cómo fue creada, para que entienda de forma lúdica cómo sus propiedades
+          definen su evolución.
+        </p>
+        <p>
+          En lugar de un teclado o un mouse, la interacción ocurre a través de una <strong>estrella física
+          con forma de sol</strong>, que lleva un sensor de proximidad y un botón conectados a un Arduino Uno.
+        </p>
+      </div>
+      <div class="poster reveal">
+        <div class="poster-placeholder">
+          <div class="orb"></div>
+          <span>Planetario de Medellín · EAFIT</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEOS -->
+  <section class="section section-alt" id="videos">
+    <div class="container">
+      <div class="center reveal">
+        <p class="eyebrow">Videos</p>
+        <h2>Mira la experiencia</h2>
+      </div>
+      <div class="videos">
+        <figure class="video-card reveal">
+          <video src="assets/video1.mp4" autoplay muted loop playsinline controls></video>
+        </figure>
+        <figure class="video-card reveal">
+          <video src="assets/video2.mp4" autoplay muted loop playsinline controls></video>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- DESENLACES -->
+  <section class="section" id="desenlaces">
+    <div class="container">
+      <div class="center reveal">
+        <p class="eyebrow">Desenlaces</p>
+        <h2>¿Cómo terminará tu estrella?</h2>
+        <p>Según sus propiedades iniciales, una estrella puede llegar a finales muy distintos.</p>
+      </div>
+      <div class="outcomes">
+        <article class="outcome reveal">
+          <div class="outcome-orb o1"></div>
+          <h3>Enana Negra</h3>
+          <p>El remanente de una estrella que se ha enfriado por completo durante billones de años, hasta dejar de emitir luz y calor.</p>
+        </article>
+        <article class="outcome reveal">
+          <div class="outcome-orb o2"></div>
+          <h3>Nebulosa Planetaria</h3>
+          <p>Al final de su vida, la estrella expulsa sus capas externas y forma una envoltura de gas brillante alrededor de su núcleo.</p>
+        </article>
+        <article class="outcome reveal">
+          <div class="outcome-orb o3"></div>
+          <h3>Estrella de Neutrones</h3>
+          <p>Una estrella masiva explota como supernova y deja un núcleo extremadamente denso y compacto, formado por neutrones.</p>
+        </article>
+        <article class="outcome reveal">
+          <div class="outcome-orb o4"></div>
+          <h3>Agujero Negro</h3>
+          <p>Las estrellas más masivas colapsan sobre sí mismas hasta que ni siquiera la luz puede escapar de su gravedad.</p>
+        </article>
+        <article class="outcome reveal">
+          <div class="outcome-orb o5"></div>
+          <h3>Muerte Térmica</h3>
+          <p>El destino más lejano: la energía se agota, las estrellas se apagan y todo alcanza un equilibrio frío y uniforme.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ANÁLISIS DE DATOS -->
+  <section class="section section-alt" id="analisis">
+    <div class="container">
+      <div class="center reveal">
+        <p class="eyebrow">Análisis de datos</p>
+        <h2>Análisis de datos recibidos</h2>
+        <p>
+          Analiza los datos telemétricos exportados desde Grafana, que registran la interacción de los
+          usuarios frente al stand físico (sensores ultrasónicos) durante las distintas fases
+          interactuables en Unity.
+        </p>
+      </div>
+
+      <!-- Carga del archivo -->
+      <label class="dropzone" id="dropzone" for="csvInput">
+        <input type="file" id="csvInput" accept=".csv,text/csv" hidden />
+        <span class="dropzone-icon">↑</span>
+        <span class="dropzone-title">Seleccione el archivo CSV exportado desde Grafana</span>
+        <span class="dropzone-sub">Arrastra el archivo aquí o haz clic para buscarlo</span>
+        <span class="dropzone-file" id="csvFileName"></span>
+      </label>
+
+      <div id="csvMsg">
+        <div class="alert alert-warning">Por favor, sube el archivo CSV de InfluxDB/Grafana para visualizar la telemetría de tu estrella.</div>
+      </div>
+
+      <div id="analysisPanel" hidden>
+        <div class="tabs" role="tablist">
+          <button class="tab-btn active" data-tab="tab-vis" type="button">Visualización</button>
+          <button class="tab-btn" data-tab="tab-stats" type="button">Estadísticas y Alertas</button>
+          <button class="tab-btn" data-tab="tab-filtros" type="button">Filtros de Interacción</button>
+          <button class="tab-btn" data-tab="tab-hw" type="button">Hardware del Proyecto</button>
+        </div>
+
+        <!-- TAB 1 · Visualización -->
+        <div class="tab-panel" id="tab-vis">
+          <h3>Dinámica del Usuario en Tiempo Real</h3>
+          <div class="controls">
+            <div class="control-grow">
+              <span class="control-label">Sensores a graficar</span>
+              <div class="chips" id="varChips"></div>
+            </div>
+            <div>
+              <label class="control-label" for="chartType">Tipo de gráfico</label>
+              <select id="chartType">
+                <option>Área</option>
+                <option>Línea</option>
+                <option>Barra</option>
+              </select>
+            </div>
+          </div>
+          <label class="check" title="Útil si tienes variables con escalas muy distintas (ej. proximidad vs temperatura).">
+            <input type="checkbox" id="normalizar" /> Normalizar escalas (0–1)
+            <small>Útil si tienes variables con escalas muy distintas (ej. proximidad vs temperatura).</small>
+          </label>
+          <div class="alert alert-warning" id="chartWarn" hidden>Seleccione al menos un sensor de la lista.</div>
+          <div class="chart-box" id="chartBox"><canvas id="chart"></canvas></div>
+          <p class="table-note" id="chartNote"></p>
+          <label class="check"><input type="checkbox" id="showRaw" /> Mostrar matriz de datos crudos</label>
+          <div id="rawTable" hidden></div>
+        </div>
+
+        <!-- TAB 2 · Estadísticas y Alertas -->
+        <div class="tab-panel" id="tab-stats" hidden>
+          <h3>Análisis Estadístico de la Experiencia</h3>
+          <h4>Resumen del comportamiento del sensor</h4>
+          <div id="describeTable"></div>
+
+          <h4>Alertas por Umbral (Reglas de Negocio)</h4>
+          <label class="control-label" for="varStats">Selecciona una variable para evaluar umbrales:</label>
+          <select id="varStats"></select>
+          <div class="metrics">
+            <div class="metric"><span>Promedio de lectura</span><strong id="mMean">—</strong></div>
+            <div class="metric"><span>Pico Máximo</span><strong id="mMax">—</strong></div>
+            <div class="metric"><span>Valle Mínimo</span><strong id="mMin">—</strong></div>
+            <div class="metric"><span>Desv. Estándar (Ruido)</span><strong id="mStd">—</strong></div>
+          </div>
+          <div class="alert alert-info" id="umbralInfo"></div>
+
+          <div id="corrBlock">
+            <h4>Correlación entre variables interactivas</h4>
+            <div id="corrTable"></div>
+            <p class="table-note">
+              Valores cercanos a 1 o −1 indican una relación directa fuerte en los controles del usuario;
+              cercanos a 0, movimientos independientes.
+            </p>
+          </div>
+        </div>
+
+        <!-- TAB 3 · Filtros -->
+        <div class="tab-panel" id="tab-filtros" hidden>
+          <h3>Aislamiento de Fases y Filtros</h3>
+          <label class="control-label" for="varFiltro">Variable base para el filtro</label>
+          <select id="varFiltro"></select>
+          <div id="filtroContenido"></div>
+        </div>
+
+        <!-- TAB 4 · Hardware -->
+        <div class="tab-panel" id="tab-hw" hidden>
+          <h3>Arquitectura del Sistema - Proyecto Genesis</h3>
+          <div class="hw-grid">
+            <div>
+              <h4>Hardware de Entrada</h4>
+              <ul class="hw-list">
+                <li><strong>Microcontrolador:</strong> Arduino Uno R3</li>
+                <li><strong>Sensores principales:</strong> HC-SR04 (Distancia / Masa), Botón Pulsador (Ignición / Temperatura)</li>
+                <li><strong>Frecuencia de muestreo:</strong> ~10ms (Hardware) / 500ms (Base de Datos)</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Software y Entorno</h4>
+              <ul class="hw-list">
+                <li><strong>Motor Gráfico:</strong> Unity 6 (VFX Graph &amp; Shader Graph)</li>
+                <li><strong>Base de Datos:</strong> InfluxDB Cloud</li>
+                <li><strong>Dashboard en vivo:</strong> Grafana</li>
+              </ul>
+              <ul class="hw-list" id="sesionInfo"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="center analysis-footer">
+        <em>Panel de análisis desarrollado para el seguimiento de interacciones físicas desde Unity.</em><br />
+        <em>Universidad EAFIT - Diseño Interactivo</em>
+      </p>
+    </div>
+  </section>
+
+  <!-- EQUIPO -->
+  <section class="section" id="equipo">
+    <div class="container">
+      <div class="center reveal">
+        <p class="eyebrow">Equipo</p>
+        <h2>Quiénes lo hicieron posible</h2>
+      </div>
+      <div class="team">
+        <div class="member reveal"><div class="avatar">DG</div><h3>Daniela Gómez</h3></div>
+        <div class="member reveal"><div class="avatar">AR</div><h3>Angela Rojar</h3></div>
+        <div class="member reveal"><div class="avatar">IM</div><h3>Isabella Molina</h3></div>
+      </div>
+      <p class="center institution reveal">Universidad EAFIT · Medellín, Colombia</p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>✦ Nacimiento Estelar · Universidad EAFIT · 2026</p>
+    <p class="footer-small">Adaptación de una experiencia interactiva del Planetario de Medellín.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="script.js"></script>
+  <script src="analisis.js"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+const int pinTrig = 9;
+const int pinEcho = 10;
+const int pinBoton = 2;
+
+long duracion;
+float distancia = 50.0;
+int estadoBoton = 0;
+
+unsigned long previoMillis = 0;
+const long intervaloUltrasonido = 50; // Mide ultrasonido cada 50 ms
+
+void setup() {
+  pinMode(pinTrig, OUTPUT);
+  pinMode(pinEcho, INPUT);
+  
+  // Muchos módulos de botón tienen pull-up invertido; 
+  // si tu módulo se queda pegado en 1 o en 0, prueba cambiando a INPUT_PULLUP
+  pinMode(pinBoton, INPUT);
+
+  Serial.begin(9600);
+}
+
+void loop() {
+  // 1. Lectura inmediata y continua del botón (no se pierde ningún clic)
+  int lecturaRaw = digitalRead(pinBoton);
+
+  // NOTA: Si al no presionar sale 1 y al presionar sale 0, 
+  // cambia "HIGH" por "LOW" en la siguiente línea:
+  if (lecturaRaw == HIGH) {
+    estadoBoton = 1;
+  } else {
+    estadoBoton = 0;
+  }
+
+  // 2. Muestreo temporizado del sensor ultrasónico mediante millis()
+  unsigned long actualMillis = millis();
+  if (actualMillis - previoMillis >= intervaloUltrasonido) {
+    previoMillis = actualMillis;
+
+    // Disparo del pulso ultrasónico
+    digitalWrite(pinTrig, LOW);
+    delayMicroseconds(2);
+    digitalWrite(pinTrig, HIGH);
+    delayMicroseconds(10);
+    digitalWrite(pinTrig, LOW);
+
+    // Timeout reducido a 18000 microsegundos (~3 metros max) para que no demore el ciclo
+    duracion = pulseIn(pinEcho, HIGH, 18000);
+
+    if (duracion > 0) {
+      distancia = duracion * 0.0343 / 2.0;
+    }
+
+    // 3. Imprimir ambos valores empaquetados
+    Serial.print(distancia);
+    Serial.print(",");
+    Serial.println(estadoBoton);
+    
+  }
+}

@@ -1,0 +1,31 @@
+
+## 1. Requerimientos de Hardware (Input Físico)
+El controlador interactivo requiere el siguiente hardware:
+* **Microcontrolador:** 1x Arduino Uno R3.
+* **Sensor de Proximidad:** 1x HC-SR04 (Mapeado a la variable de *Masa*).
+* **Pulsador:** 1x Botón / Push button (Mapeado a la variable de *Temperatura / Ignición*).
+* **Carcasa:** Piezas impresas en 3D (diseño de sol partido).
+* **Conexión:** Cable USB-B a USB-A/C para comunicación Serial.
+
+## 2. Requerimientos de Software y Simulación
+Para correr y editar el entorno virtual:
+* **Motor Gráfico:** Unity 6 (Uso intensivo de *VFX Graph* y *Shader Graph*).
+* **Programación Microcontrolador:** Arduino IDE (Lenguaje C/C++).
+* **Comunicación Serial:** Script de Unity para parsear la lectura del puerto COM.
+
+## 3. Infraestructura de Datos (Telemetría)
+Para la recolección de interacciones físicas:
+* **Base de Datos:** InfluxDB (Cloud o Local).
+* **Visualización en Vivo:** Grafana (Conectado a InfluxDB como Data Source).
+* **Protocolo:** MQTT Broker (opcional si se puentea desde Arduino a la base de datos vía ESP32 o mediante script local).
+
+## 4. Dependencias del Entorno Web (Dashboard)
+El frontend web es Vainilla (HTML/CSS/JS) y no requiere un proceso de build (como Node.js o Webpack), pero consume las siguientes librerías vía CDN en tiempo de ejecución:
+
+| Librería | Versión | Uso en el proyecto |
+| :--- | :--- | :--- |
+| **Chart.js** | `4.4.1` | Renderizado de las gráficas de telemetría (líneas, barras, áreas). |
+| **PapaParse** | `5.4.1` | Parseo rápido y estructurado de los archivos `.csv` exportados por Grafana. |
+| **Google Fonts** | `N/A` | Tipografías *Space Grotesk* e *Inter*. |
+
+*Nota: Para ejecutar la web en modo desarrollo, se requiere un servidor HTTP local (ej. Live Server en VS Code, o `python -m http.server`).*
